@@ -5,7 +5,7 @@ import HightlightedText from "src/components/HightlightedText";
 import { Link } from "react-router-dom";
 
 const PiExplanationPage = () => {
-    const { data: piValue } = useGetPiQuery({})
+    const { data: piData } = useGetPiQuery({})
     const { data: sunCircumference } = useGetCircumferenceQuery({ query: { planetName: 'sun' } })
     return (
         <Stack alignItems="center" rowGap={3} padding={3} bgcolor="#222" minHeight="100vh" color="white"
@@ -20,12 +20,15 @@ const PiExplanationPage = () => {
                 <br/>
                 The diameter of the sun is known to be 1392684 km
             </Typography>
-            <Typography>
-                According to our calculation, the known pi value is
-                <HightlightedText>{piValue}</HightlightedText>
+            <Typography sx={{ wordBreak: 'break-all' }}>
+                According to our calculation, the known pi(π) value is
                 <br/>
-                Therefore, the diameter of the sun is {piValue} * 1392684 km
-                which resulted in <HightlightedText> {sunCircumference}  </HightlightedText> km
+                <HightlightedText>{piData?.pi}</HightlightedText>
+                <br/>
+                <br/>
+                Therefore, the diameter of the sun is π * 1392684 km
+                which resulted
+                in <HightlightedText> {sunCircumference}  </HightlightedText> km
             </Typography>
             <Box>
                 <Button color="warning" variant="contained"

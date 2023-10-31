@@ -1,7 +1,7 @@
 import createQuery from './createQuery';
 import { queryKeys } from '../queryKeys';
 
-export const useGetPiQuery = createQuery<never, any[], never>({
+export const useGetPiQuery = createQuery<never, { pi: string }, never>({
     queryKey: queryKeys.getPi.queryKey,
     url: () => "/pi/current",
 });
