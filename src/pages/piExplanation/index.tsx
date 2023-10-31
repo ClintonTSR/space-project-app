@@ -20,9 +20,10 @@ const PiExplanationPage = () => {
                 <br/>
                 The diameter of the sun is known to be 1392684 km
             </Typography>
-            <Typography sx={{ wordBreak: 'break-all' }}>
+            <Typography>
                 According to our calculation, the known pi(π) value is
-                <br/>
+            </Typography>
+            <Typography sx={{ wordBreak: 'break-all' }}>
                 <HightlightedText>{piData?.pi}</HightlightedText>
             </Typography>
             <Typography>
