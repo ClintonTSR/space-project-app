@@ -24,8 +24,8 @@ const PiExplanationPage = () => {
                 According to our calculation, the known pi(π) value is
                 <br/>
                 <HightlightedText>{piData?.pi}</HightlightedText>
-                <br/>
-                <br/>
+            </Typography>
+            <Typography>
                 Therefore, the diameter of the sun is π * 1392684 km
                 which resulted
                 in <HightlightedText> {sunCircumference}  </HightlightedText> km
