@@ -1,3 +1,5 @@
-# This is a Space Project
+# space-project-app
+Refer to space-project-main for installation: 
+https://github.com/ClintonTSR/space-project-main
 
-It tells you about our solar system.
+This is a project that tells yo u about our solar system.
