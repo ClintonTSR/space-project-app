@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider, QueryErrorResetBoundary } from "@tanstack/react-query";
+import { useMemo } from "react";
+import router from "./router";
 
 function App() {
+
+
+  const queryClient = useMemo(
+      () =>
+          new QueryClient({
+            defaultOptions: {
+              queries: {
+                useErrorBoundary: true,
+                refetchOnWindowFocus: true,
+                // 10 minutes until data is considered stale
+                staleTime: 10 * 60 * 1000,
+                // 10 minutes cache time
+                cacheTime: 10 * 60 * 1000,
+              },
+            },
+          }),
+      [],
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <QueryClientProvider client={queryClient}>
+          <QueryErrorResetBoundary>
+            <RouterProvider router={router}/>
+          </QueryErrorResetBoundary>
+        </QueryClientProvider>
+      </div>
   );
 }
 
